@@ -132,7 +132,8 @@ class TodoMCPConfig(BaseSettings):
             content = config_path.read_text(encoding="utf-8")
             
             # Pattern to match export statements like: export VAR="value" or export VAR=value
-            export_pattern = re.compile(r'^\s*export\s+(\w+)=(.+)$', re.MULTILINE)
+            # Also match simple assignments like: VAR="value" or VAR=value  
+            export_pattern = re.compile(r'^\s*(?:export\s+)?(\w+)=(.+)$', re.MULTILINE)
             
             for match in export_pattern.finditer(content):
                 var_name = match.group(1)
@@ -170,4 +171,10 @@ class TodoMCPConfig(BaseSettings):
         
         # Pattern for $VAR or ${VAR}
         var_pattern = re.compile(r'\$\{(\w+)\}|\$(\w+)')
-        return var_pattern.sub(replace_var, value) 
+        expanded = var_pattern.sub(replace_var, value)
+        
+        # Handle tilde expansion for home directory
+        if expanded.startswith('~'):
+            expanded = str(Path(expanded).expanduser())
+            
+        return expanded 

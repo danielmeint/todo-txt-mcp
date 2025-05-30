@@ -150,6 +150,31 @@ export TODO_FILE="$TODO_DIR/todo.txt"
         assert config.todo_file_path == Path("/valid/path/todo.txt")
 
 
+def test_from_todo_sh_config_simple_assignments():
+    """Test loading from todo.sh config with simple VAR=value assignments (no export)."""
+    with tempfile.TemporaryDirectory() as temp_dir:
+        config_path = Path(temp_dir) / "config"
+        
+        # Create config like Daniel's actual config
+        config_content = '''
+TODO_DIR=~/.todo
+TODO_FILE=~/.todo/todo.txt
+DONE_FILE=~/.todo/done.txt
+REPORT_FILE=~/.todo/report.txt
+'''
+        config_path.write_text(config_content)
+        
+        # Load config
+        config = TodoMCPConfig.from_todo_sh_config(config_path)
+        
+        # Should expand ~ properly
+        expected_todo = Path.home() / ".todo" / "todo.txt"
+        expected_done = Path.home() / ".todo" / "done.txt"
+        
+        assert config.todo_file_path == expected_todo
+        assert config.done_file_path == expected_done
+
+
 def test_find_todo_sh_config(monkeypatch):
     """Test finding todo.sh config in standard locations."""
     # Mock Path.exists to simulate config file locations
