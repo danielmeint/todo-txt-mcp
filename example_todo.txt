@@ -1,0 +1,10 @@
+(A) Call Mom +family @phone
+x 2024-01-15 2024-01-10 (B) Buy groceries +shopping @errands
+Write project proposal +work @computer
+(C) Schedule dentist appointment +health @phone
+x 2024-01-14 Clean garage +home @weekend
+(A) Review quarterly reports +work @office
+Buy birthday gift for Sarah +personal @shopping
+(B) Update website content +work @computer
+Call insurance company +admin @phone
+Plan weekend trip +personal @planning 
