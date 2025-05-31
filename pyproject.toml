@@ -1,6 +1,6 @@
 [project]
 name = "todo-txt-mcp"
-version = "1.0.0"
+version = "1.0.1"
 description = "Model Context Protocol server for todo.txt file management with AI assistants like Claude"
 readme = "README.md"
 requires-python = ">=3.10"

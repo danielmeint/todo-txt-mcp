@@ -39,10 +39,61 @@ A minimal but extensible Model Context Protocol (MCP) server that exposes todo.t
 
 ## Installation
 
+### Quick Start (Recommended)
+
+The fastest way to get started is using `uvx` to run the server without installing:
+
+```bash
+# Run directly without installing (recommended for testing)
+uvx todo-txt-mcp
+
+# Or install globally with uv
+uv tool install todo-txt-mcp
+```
+
+### Installation Methods
+
+#### 1. Using uv (Modern Python Package Manager)
+
+```bash
+# Install globally (recommended)
+uv tool install todo-txt-mcp
+
+# Or install in project
+uv add todo-txt-mcp
+
+# Run the server
+uv tool run todo-txt-mcp
+# or if installed in project: uv run todo-txt-mcp
+```
+
+#### 2. Using pip (Traditional)
+
+```bash
+# Install globally
+pip install todo-txt-mcp
+
+# Or install for user only
+pip install --user todo-txt-mcp
+
+# Run the server
+todo-txt-mcp
+```
+
+#### 3. Using pipx (Isolated Installation)
+
+```bash
+# Install in isolated environment
+pipx install todo-txt-mcp
+
+# Run the server
+todo-txt-mcp
+```
+
 ### From Source
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/danielmeint/todo-txt-mcp.git
 cd todo-txt-mcp
 uv install
 ```
@@ -50,7 +101,7 @@ uv install
 ### Development Installation
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/danielmeint/todo-txt-mcp.git
 cd todo-txt-mcp
 uv install --dev
 ```
@@ -63,16 +114,16 @@ Run the MCP server directly:
 
 ```bash
 # Use default todo.txt in current directory
-uv run todo-txt-mcp
+todo-txt-mcp
 
 # Specify a custom todo.txt file
-uv run todo-txt-mcp /path/to/your/todo.txt
+todo-txt-mcp /path/to/your/todo.txt
 
 # Use existing todo.sh configuration (auto-detected)
-uv run todo-txt-mcp
+todo-txt-mcp
 
 # Specify a todo.sh config file explicitly  
-uv run todo-txt-mcp /path/to/your/todo.cfg
+todo-txt-mcp /path/to/your/todo.cfg
 ```
 
 ### Integration with Existing todo.sh Setup
@@ -103,33 +154,76 @@ export REPORT_FILE="$TODO_DIR/report.txt"
 
 ### With Claude Desktop
 
-Add to your Claude Desktop MCP configuration:
+Add to your Claude Desktop MCP configuration file:
 
+**Location:**
+- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+
+#### Option 1: Using uvx (Recommended)
+```json
+{
+  "mcpServers": {
+    "todo-txt": {
+      "command": "uvx",
+      "args": ["todo-txt-mcp"]
+    }
+  }
+}
+```
+
+#### Option 2: Using uv tool
 ```json
 {
   "mcpServers": {
     "todo-txt": {
       "command": "uv",
-      "args": ["run", "todo-txt-mcp"],
-      "cwd": "/path/to/todo-txt-mcp"
+      "args": ["tool", "run", "todo-txt-mcp"]
     }
   }
 }
 ```
 
-Or specify a custom config:
-
+#### Option 3: Direct installation
 ```json
 {
   "mcpServers": {
     "todo-txt": {
-      "command": "uv", 
-      "args": ["run", "todo-txt-mcp", "/path/to/your/todo.cfg"],
-      "cwd": "/path/to/todo-txt-mcp"
+      "command": "todo-txt-mcp"
     }
   }
 }
 ```
+
+#### Option 4: With custom todo.txt file
+```json
+{
+  "mcpServers": {
+    "todo-txt": {
+      "command": "uvx",
+      "args": ["todo-txt-mcp", "/Users/username/Dropbox/todo/todo.txt"]
+    }
+  }
+}
+```
+
+#### Option 5: With environment variables
+```json
+{
+  "mcpServers": {
+    "todo-txt": {
+      "command": "uvx",
+      "args": ["todo-txt-mcp"],
+      "env": {
+        "TODO_MCP_TODO_FILE_PATH": "/Users/username/Dropbox/todo/todo.txt",
+        "TODO_MCP_BACKUP_ENABLED": "true"
+      }
+    }
+  }
+}
+```
+
+**Restart Claude Desktop** after updating the configuration file.
 
 ### Configuration
 

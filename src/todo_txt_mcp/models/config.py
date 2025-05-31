@@ -38,6 +38,8 @@ class TodoMCPConfig(BaseSettings):
     class Config:
         env_prefix = "TODO_MCP_"
         env_file = ".env"
+        env_file_encoding = "utf-8"
+        extra = "ignore"  # Ignore extra environment variables
 
     def get_done_file_path(self) -> Path:
         """Get the done.txt file path, defaulting to same directory as todo.txt."""
