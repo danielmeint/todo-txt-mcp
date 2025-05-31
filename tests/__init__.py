@@ -1,1 +1,1 @@
-"""Tests for todo.txt MCP server.""" 
+"""Tests for todo.txt MCP server."""

@@ -3,4 +3,4 @@
 from .config import TodoMCPConfig
 from .todo import TodoItem, TodoList
 
-__all__ = ["TodoMCPConfig", "TodoItem", "TodoList"] 
+__all__ = ["TodoMCPConfig", "TodoItem", "TodoList"]

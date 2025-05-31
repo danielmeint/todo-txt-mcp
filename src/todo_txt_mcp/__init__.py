@@ -6,4 +6,4 @@ __description__ = "Model Context Protocol server for todo.txt file management"
 
 from .server import create_server
 
-__all__ = ["create_server"] 
+__all__ = ["create_server"]

@@ -43,7 +43,7 @@ A minimal but extensible Model Context Protocol (MCP) server that exposes todo.t
 
 ```bash
 git clone <repository-url>
-cd todo.txt-mcp
+cd todo-txt-mcp
 uv install
 ```
 
@@ -51,7 +51,7 @@ uv install
 
 ```bash
 git clone <repository-url>
-cd todo.txt-mcp
+cd todo-txt-mcp
 uv install --dev
 ```
 

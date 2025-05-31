@@ -1,8 +1,8 @@
 """Pytest configuration and fixtures."""
 
 import tempfile
+from collections.abc import Generator
 from pathlib import Path
-from typing import Generator
 
 import pytest
 
@@ -24,7 +24,7 @@ def test_config(temp_dir: Path) -> TodoMCPConfig:
         todo_file_path=temp_dir / "todo.txt",
         done_file_path=temp_dir / "done.txt",
         backup_enabled=False,  # Disable backups for testing
-        auto_archive=False,    # Disable auto-archive for simpler testing
+        auto_archive=False,  # Disable auto-archive for simpler testing
     )
 
 
@@ -38,13 +38,13 @@ def todo_service(test_config: TodoMCPConfig) -> TodoService:
 def sample_todo_file(test_config: TodoMCPConfig) -> Path:
     """Create a sample todo.txt file for testing."""
     todo_file = test_config.todo_file_path
-    
+
     # Create sample todo content
     content = """(A) Call Mom +family @phone
 x 2024-01-15 2024-01-10 (B) Buy groceries +shopping @errands
 Write project proposal +work @computer
 (C) Schedule dentist appointment +health @phone
 x 2024-01-14 Clean garage +home @weekend"""
-    
+
     todo_file.write_text(content, encoding="utf-8")
-    return todo_file 
+    return todo_file
