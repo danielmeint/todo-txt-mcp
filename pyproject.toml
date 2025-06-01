@@ -130,6 +130,12 @@ warn_redundant_casts = true
 warn_unused_ignores = true
 warn_return_any = true
 strict_equality = true
+mypy_path = "src"
+exclude = [
+    "test_server\\.py",
+    "test_todo_sh_integration\\.py",
+    "main\\.py",
+]
 
 [[tool.mypy.overrides]]
 module = "pytodotxt.*"
