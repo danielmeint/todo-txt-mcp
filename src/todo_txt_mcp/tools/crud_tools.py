@@ -30,6 +30,9 @@ def register_crud_tools(mcp: FastMCP, todo_service: TodoService) -> None:
             Dictionary containing the created todo details
         """
         try:
+            # Strip newlines to prevent corrupting todo.txt file structure
+            text = text.replace("\n", " ").replace("\r", " ").strip()
+
             # Convert lists to sets
             project_set = set(projects) if projects else None
             context_set = set(contexts) if contexts else None
@@ -137,6 +140,10 @@ def register_crud_tools(mcp: FastMCP, todo_service: TodoService) -> None:
             Dictionary containing success status and updated todo details
         """
         try:
+            # Strip newlines from text to prevent corrupting todo.txt file structure
+            if text is not None:
+                text = text.replace("\n", " ").replace("\r", " ").strip()
+
             # Validate priority if provided
             if priority and (
                 len(priority) != 1 or not priority.isalpha() or not priority.isupper()

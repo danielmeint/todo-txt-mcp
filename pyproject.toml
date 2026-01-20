@@ -12,7 +12,7 @@ maintainers = [
     {name = "Daniel Meint", email = "pilots-4-trilogy@icloud.com"}
 ]
 keywords = [
-    "todo", "todo.txt", "mcp", "model-context-protocol", 
+    "todo", "todo.txt", "mcp", "model-context-protocol",
     "ai", "claude", "task-management", "productivity", "cli"
 ]
 classifiers = [
@@ -134,7 +134,6 @@ mypy_path = "src"
 exclude = [
     "test_server\\.py",
     "test_todo_sh_integration\\.py",
-    "main\\.py",
 ]
 
 [[tool.mypy.overrides]]

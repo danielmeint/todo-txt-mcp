@@ -7,4 +7,4 @@ x 2024-01-14 Clean garage +home @weekend
 Buy birthday gift for Sarah +personal @shopping
 (B) Update website content +work @computer
 Call insurance company +admin @phone
-Plan weekend trip +personal @planning 
+Plan weekend trip +personal @planning

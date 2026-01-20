@@ -70,7 +70,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Technical Details
 - **Python Version**: Requires Python 3.10+
-- **Dependencies**: 
+- **Dependencies**:
   - mcp[cli] >= 1.9.2
   - pydantic >= 2.11.5
   - pydantic-settings >= 2.9.0
@@ -109,4 +109,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Version History
 
-- **v1.0.0** (2025-05-31): Initial stable release with full todo.txt MCP functionality 
+- **v1.0.0** (2025-05-31): Initial stable release with full todo.txt MCP functionality

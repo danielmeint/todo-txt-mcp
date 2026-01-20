@@ -46,4 +46,4 @@ How important is this feature to you?
 - [ ] Critical for my use case
 
 **Related features**
-Are there existing MCP tools or todo.txt features this should integrate with? 
+Are there existing MCP tools or todo.txt features this should integrate with?
