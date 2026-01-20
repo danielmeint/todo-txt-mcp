@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.2] - 2026-01-20
+
+### Fixed
+- **Input Sanitization**: Strip newlines from text inputs in `add_todo` and `update_todo` to prevent corrupting the todo.txt file structure (one line = one task)
+
+### Changed
+- **Repository Cleanup**: Simplified `.gitignore`, removed `.idea/` directory and unused `main.py`
+- **Documentation**: Streamlined README for clarity, removed redundant sections
+- **Development**: Added pre-commit hooks for ruff, black, mypy, and pytest
+
 ## [1.0.1] - 2025-05-31
 
 ### Fixed
@@ -109,4 +119,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Version History
 
+- **v1.0.2** (2026-01-20): Bug fix for newline handling, repository cleanup, pre-commit hooks
+- **v1.0.1** (2025-05-31): Fixed pydantic-settings configuration issue
 - **v1.0.0** (2025-05-31): Initial stable release with full todo.txt MCP functionality
